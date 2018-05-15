@@ -6,7 +6,8 @@ class NewGrudge extends Component {
   constructor() {
     super();
     this.state = {
-      value: '',
+      person: '',
+      deed: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -15,27 +16,45 @@ class NewGrudge extends Component {
 
   handleChange(event) {
     const { target } = event;
-    if (target instanceof HTMLInputElement) {
-      const { value } = target;
-      this.setState({ value });
-    }
+    const { value, name } = target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     const { onSubmit } = this.props;
-    const { value } = this.state;
+    const { person, deed } = this.state;
 
     event.preventDefault();
-    onSubmit({ value, avenged: false, id: Date.now() });
-    this.setState({ value: '' });
+    onSubmit({
+      person,
+      deed,
+      avenged: false,
+      id: Date.now(),
+    });
+    this.setState({ person: '', deed: '' });
   }
 
   render() {
-    const { value } = this.state;
+    const { person, deed } = this.state;
 
     return (
       <form className="NewGrudge" onSubmit={this.handleSubmit}>
-        <input className="NewGrudge-input" type="text" value={value} onChange={this.handleChange} />
+        <input
+          className="NewGrudge-input"
+          name="person"
+          placeholder="Person"
+          type="text"
+          value={person}
+          onChange={this.handleChange}
+        />
+        <input
+          className="NewGrudge-input"
+          name="deed"
+          placeholder="Deed"
+          type="text"
+          value={deed}
+          onChange={this.handleChange}
+        />
         <input className="NewGrudge-submit button" type="submit" />
       </form>
     );
