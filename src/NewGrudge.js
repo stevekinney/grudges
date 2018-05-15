@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid/v4';
 import './NewGrudge.css';
 
 class NewGrudge extends Component {
@@ -25,12 +26,15 @@ class NewGrudge extends Component {
     const { person, deed } = this.state;
 
     event.preventDefault();
+
     onSubmit({
       person,
       deed,
       avenged: false,
-      id: Date.now(),
+      dateCreated: Date.now(),
+      id: uuid(),
     });
+
     this.setState({ person: '', deed: '' });
   }
 

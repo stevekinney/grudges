@@ -1,11 +1,62 @@
 --- !com.amazonaws.mobilehub.v0.Project 
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      grudgesCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: grudgesCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /grudges: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/grudges-20180515075742.zip
+            description: 'Handler for calls to resource path : /grudges/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: 6XXk88bRtmmhCeaN0JANJvesAekhi1srE3WtHJmuY2E=
+            memorySize: '128'
+            modified: '2018-05-15T13:58:24.368+0000'
+            name: grudges
+            runtime: nodejs6.10
+            timeout: '3'
+            version: iAZCQZNR1g4FxEbS8gkWI.vHN5e.XqE4
+          '/grudges/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/grudges-20180515075742.zip
+            description: 'Handler for calls to resource path : /grudges/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: 6XXk88bRtmmhCeaN0JANJvesAekhi1srE3WtHJmuY2E=
+            memorySize: '128'
+            modified: '2018-05-15T13:58:24.368+0000'
+            name: grudges
+            runtime: nodejs6.10
+            timeout: '3'
+            version: SiyiULVFuB3z8gOsPsntct8CGuuQAU9a
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              avenged: BOOL
+              dateCreated: N
+              deed: S
+              person: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: dateCreated
+            rangeKeyType: N
+            tableName: ___DYNAMIC_PREFIX___-grudges
+            tablePrivacy: private
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}

@@ -26,7 +26,7 @@ class Grudge extends Component {
 
 Grudge.propTypes = {
   avenged: PropTypes.bool,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   person: PropTypes.string.isRequired,
   deed: PropTypes.string.isRequired,
   onCheckOff: PropTypes.func.isRequired,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import NewGrudge from './NewGrudge';
 import Grudges from './Grudges';
@@ -17,8 +18,17 @@ class Application extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidMount() {
+    API.get('grudgesCRUD', '/grudges').then((grudges) => {
+      this.setState({ grudges });
+    }).catch(error => console.error(error));
+  }
+
   addGrudge(grudge) {
-    this.setState({ grudges: [grudge, ...this.state.grudges] });
+    API.post('grudgesCRUD', '/grudges', { body: grudge }).then((response) => {
+      console.log(response);
+      this.setState({ grudges: [grudge, ...this.state.grudges] });
+    });
   }
 
   removeGrudge(grudge) {
