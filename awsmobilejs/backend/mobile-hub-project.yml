@@ -49,6 +49,7 @@ features:
               avenged: BOOL
               dateCreated: N
               deed: S
+              id: S
               person: S
               userId: S
             hashKeyName: userId
