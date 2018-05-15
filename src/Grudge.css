@@ -1,0 +1,13 @@
+.Grudge-remove {
+  background-color: white;
+  color: #f65e81;
+  border: none;
+  margin-left: 1em;
+  outline: none;
+  padding: 0;
+}
+
+.Grudge-remove:hover {
+  background-color: white;
+  text-decoration: underline;
+}
