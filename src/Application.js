@@ -4,28 +4,21 @@ import Grudges from './Grudges';
 import './Application.css';
 
 class Application extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      grudges: [],
-    };
-
-    this.addGrudge = this.addGrudge.bind(this);
-    this.removeGrudge = this.removeGrudge.bind(this);
-    this.toggle = this.toggle.bind(this);
+  state = {
+    grudges: [],
   }
 
-  addGrudge(grudge) {
+  addGrudge = (grudge) => {
     this.setState({ grudges: [grudge, ...this.state.grudges] });
   }
 
-  removeGrudge(grudge) {
+  removeGrudge = (grudge) => {
     this.setState({
       grudges: this.state.grudges.filter(other => other.id !== grudge.id),
     });
   }
 
-  toggle(grudge) {
+  toggle = (grudge) => {
     const othergrudges = this.state.grudges.filter(other => other.id !== grudge.id);
     const updatedGrudge = { ...grudge, avenged: !grudge.avenged };
     this.setState({ grudges: [updatedGrudge, ...othergrudges] });

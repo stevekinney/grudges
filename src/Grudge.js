@@ -4,7 +4,9 @@ import './Grudge.css';
 
 class Grudge extends Component {
   render() {
-    const { avenged, id, person, deed, onCheckOff, onRemove } = this.props;
+    const {
+      avenged, id, person, deed, onCheckOff, onRemove,
+    } = this.props;
     return (
       <article className="Grudge">
         <label htmlFor={id}>
@@ -14,7 +16,8 @@ class Grudge extends Component {
             onChange={onCheckOff}
             id={id}
           />
-          <strong>{person}</strong>: {deed}
+          <strong>{person}</strong>:
+          {deed}
         </label>
         <button className="Grudge-remove" onClick={onRemove}>
           Remove
@@ -26,7 +29,7 @@ class Grudge extends Component {
 
 Grudge.propTypes = {
   avenged: PropTypes.bool,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   person: PropTypes.string.isRequired,
   deed: PropTypes.string.isRequired,
   onCheckOff: PropTypes.func.isRequired,

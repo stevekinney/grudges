@@ -4,24 +4,18 @@ import uuid from 'uuid/v4';
 import './NewGrudge.css';
 
 class NewGrudge extends Component {
-  constructor() {
-    super();
-    this.state = {
-      person: '',
-      deed: '',
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    person: '',
+    deed: '',
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const { target } = event;
     const { value, name } = target;
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     const { onSubmit } = this.props;
     const { person, deed } = this.state;
 

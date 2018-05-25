@@ -6,16 +6,11 @@ import './Grudges.css';
 const contentFor = ({ person, deed }) => (person + deed).toLowerCase();
 
 class Grudges extends Component {
-  constructor() {
-    super();
-    this.state = {
-      searchTerm: '',
-    };
-
-    this.updateSearchTerm = this.updateSearchTerm.bind(this);
+  state = {
+    searchTerm: '',
   }
 
-  updateSearchTerm(event) {
+  updateSearchTerm = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     this.setState({
       searchTerm,
@@ -23,7 +18,9 @@ class Grudges extends Component {
   }
 
   render() {
-    const { title, grudges, onCheckOff, onRemove } = this.props;
+    const {
+      title, grudges, onCheckOff, onRemove,
+    } = this.props;
     const { searchTerm } = this.state;
     return (
       <section className="Grudges">
@@ -53,13 +50,11 @@ class Grudges extends Component {
 
 Grudges.propTypes = {
   title: PropTypes.string.isRequired,
-  grudges: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-      packed: PropTypes.bool,
-      id: PropTypes.number,
-    }),
-  ).isRequired,
+  grudges: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    packed: PropTypes.bool,
+    id: PropTypes.string,
+  })).isRequired,
   onCheckOff: PropTypes.func,
   onRemove: PropTypes.func,
 };
