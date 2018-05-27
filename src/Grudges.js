@@ -8,14 +8,14 @@ const contentFor = ({ person, deed }) => (person + deed).toLowerCase();
 class Grudges extends Component {
   state = {
     searchTerm: '',
-  }
+  };
 
   updateSearchTerm = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     this.setState({
       searchTerm,
     });
-  }
+  };
 
   render() {
     const {
@@ -35,6 +35,7 @@ class Grudges extends Component {
         />
         {grudges
           .filter(grudge => contentFor(grudge).includes(searchTerm))
+          .sort((a, b) => a.dateAdded - b.dateAdded)
           .map(grudge => (
             <Grudge
               key={grudge.id}

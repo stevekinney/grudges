@@ -7,19 +7,20 @@ class NewGrudge extends Component {
   state = {
     person: '',
     deed: '',
-  }
+  };
 
   handleChange = (event) => {
     const { target } = event;
     const { value, name } = target;
     this.setState({ [name]: value });
-  }
+  };
 
   handleSubmit = (event) => {
     const { onSubmit } = this.props;
     const { person, deed } = this.state;
 
     event.preventDefault();
+
     onSubmit({
       avenged: false,
       dateAdded: Date.now(),
@@ -27,8 +28,9 @@ class NewGrudge extends Component {
       id: uuid(),
       person,
     });
+
     this.setState({ person: '', deed: '' });
-  }
+  };
 
   render() {
     const { person, deed } = this.state;

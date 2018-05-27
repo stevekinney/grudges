@@ -6,23 +6,23 @@ import './Application.css';
 class Application extends Component {
   state = {
     grudges: [],
-  }
+  };
 
   addGrudge = (grudge) => {
     this.setState({ grudges: [grudge, ...this.state.grudges] });
-  }
+  };
 
   removeGrudge = (grudge) => {
     this.setState({
       grudges: this.state.grudges.filter(other => other.id !== grudge.id),
     });
-  }
+  };
 
   toggle = (grudge) => {
     const othergrudges = this.state.grudges.filter(other => other.id !== grudge.id);
     const updatedGrudge = { ...grudge, avenged: !grudge.avenged };
     this.setState({ grudges: [updatedGrudge, ...othergrudges] });
-  }
+  };
 
   render() {
     const { grudges } = this.state;
