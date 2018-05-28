@@ -16,7 +16,7 @@ class Grudge extends Component {
             onChange={onCheckOff}
             id={id}
           />
-          <strong>{person}</strong>:
+          <strong>{person}</strong>:{' '}
           {deed}
         </label>
         <button className="Grudge-remove" onClick={onRemove}>
