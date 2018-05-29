@@ -53,8 +53,7 @@ Grudges.propTypes = {
     PropTypes.shape({
       person: PropTypes.string.isRequired,
       deed: PropTypes.string.isRequired,
-      avenged: PropTypes.bool,
-      isRequired,
+      avenged: PropTypes.bool.isRequired,
       id: PropTypes.string.isRequired,
     }),
   ).isRequired,
