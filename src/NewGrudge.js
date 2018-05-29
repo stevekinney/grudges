@@ -24,7 +24,7 @@ class NewGrudge extends Component {
     onSubmit({
       avenged: false,
       deed,
-      id: `${Date.now()} ${uuid()}`,
+      id: `${Date.now()}-${generate()}`,
       person,
     });
 
