@@ -51,14 +51,11 @@ Grudges.propTypes = {
   title: PropTypes.string.isRequired,
   grudges: PropTypes.arrayOf(
     PropTypes.shape({
-      person: PropTypes.string,
-      isRequired,
-      deed: PropTypes.string,
-      isRequired,
+      person: PropTypes.string.isRequired,
+      deed: PropTypes.string.isRequired,
       avenged: PropTypes.bool,
       isRequired,
-      id: PropTypes.string,
-      isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ).isRequired,
   onCheckOff: PropTypes.func,

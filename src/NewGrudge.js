@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid/v4';
+import { generate } from 'shortid';
 import './NewGrudge.css';
 
 class NewGrudge extends Component {
