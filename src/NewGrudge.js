@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { generate } from 'shortid';
 import './NewGrudge.css';
 
 class NewGrudge extends Component {
@@ -24,7 +23,7 @@ class NewGrudge extends Component {
     onSubmit({
       avenged: false,
       deed,
-      id: `${Date.now()}-${generate()}`,
+      id: Date.now(),
       person,
     });
 
