@@ -10,7 +10,7 @@ class Grudges extends Component {
     searchTerm: '',
   };
 
-  updateSearchTerm = (event) => {
+  updateSearchTerm = event => {
     const searchTerm = event.target.value.toLowerCase();
     this.setState({
       searchTerm,
@@ -18,9 +18,7 @@ class Grudges extends Component {
   };
 
   render() {
-    const {
-      title, grudges, onCheckOff, onRemove,
-    } = this.props;
+    const { title, grudges, onCheckOff, onRemove } = this.props;
     const { searchTerm } = this.state;
     return (
       <section className="Grudges">
@@ -35,7 +33,7 @@ class Grudges extends Component {
         />
         {grudges
           .filter(grudge => contentFor(grudge).includes(searchTerm))
-          .sort((a, b) => a.dateAdded - b.dateAdded)
+          .sort((a, b) => a.id - b.id)
           .map(grudge => (
             <Grudge
               key={grudge.id}
@@ -51,11 +49,18 @@ class Grudges extends Component {
 
 Grudges.propTypes = {
   title: PropTypes.string.isRequired,
-  grudges: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string,
-    packed: PropTypes.bool,
-    id: PropTypes.string,
-  })).isRequired,
+  grudges: PropTypes.arrayOf(
+    PropTypes.shape({
+      person: PropTypes.string,
+      isRequired,
+      deed: PropTypes.string,
+      isRequired,
+      avenged: PropTypes.bool,
+      isRequired,
+      id: PropTypes.string,
+      isRequired,
+    }),
+  ).isRequired,
   onCheckOff: PropTypes.func,
   onRemove: PropTypes.func,
 };

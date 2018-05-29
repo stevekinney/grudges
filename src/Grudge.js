@@ -4,9 +4,7 @@ import './Grudge.css';
 
 class Grudge extends Component {
   render() {
-    const {
-      avenged, id, person, deed, onCheckOff, onRemove,
-    } = this.props;
+    const { avenged, id, person, deed, onCheckOff, onRemove } = this.props;
     return (
       <article className="Grudge">
         <label htmlFor={id}>
@@ -28,16 +26,12 @@ class Grudge extends Component {
 }
 
 Grudge.propTypes = {
-  avenged: PropTypes.bool,
+  avenged: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   person: PropTypes.string.isRequired,
   deed: PropTypes.string.isRequired,
   onCheckOff: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
-};
-
-Grudge.defaultProps = {
-  avenged: false,
 };
 
 export default Grudge;

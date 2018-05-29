@@ -9,13 +9,13 @@ class NewGrudge extends Component {
     deed: '',
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { target } = event;
     const { value, name } = target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     const { onSubmit } = this.props;
     const { person, deed } = this.state;
 
@@ -23,9 +23,8 @@ class NewGrudge extends Component {
 
     onSubmit({
       avenged: false,
-      dateAdded: Date.now(),
       deed,
-      id: uuid(),
+      id: `${Date.now()} ${uuid()}`,
       person,
     });
 
