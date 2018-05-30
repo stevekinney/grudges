@@ -23,7 +23,7 @@ class NewGrudge extends Component {
     onSubmit({
       avenged: false,
       deed,
-      id: Date.now(),
+      id: Date.now().toString(),
       person,
     });
 

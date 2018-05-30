@@ -1,0 +1,79 @@
+--- !com.amazonaws.mobilehub.v0.Project 
+features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      grdugesCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          name: grdugesCRUD
+          requires-signin: true
+          sdk-generation-stage-name: Development
+        paths:
+          /grduges: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/grduges-20180530112611.zip
+            description: 'Handler for calls to resource path : /grduges/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: bxlSuWfjyXLY1f6gEvqt9t3F+AN9IUz+RxktyCpkJJI=
+            memorySize: '128'
+            modified: '2018-05-30T16:26:42.027+0000'
+            name: grduges
+            runtime: nodejs6.10
+            timeout: '3'
+            version: rnrLxSxdRySzh54WsS2gk68u0xD5xGSb
+          '/grduges/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/grduges-20180530112611.zip
+            description: 'Handler for calls to resource path : /grduges/{proxy+}'
+            enableCORS: true
+            environment: {}
+            handler: lambda.handler
+            hashcode: bxlSuWfjyXLY1f6gEvqt9t3F+AN9IUz+RxktyCpkJJI=
+            memorySize: '128'
+            modified: '2018-05-30T16:26:42.027+0000'
+            name: grduges
+            runtime: nodejs6.10
+            timeout: '3'
+            version: E.yecqjzuAJK635bsr6lVCWQspqDblbN
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
+    attributes:
+      enabled: true
+      visibility: public-global
+    components:
+      release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              avenged: BOOL
+              deed: S
+              id: S
+              person: S
+              userId: S
+            hashKeyName: userId
+            hashKeyType: S
+            rangeKeyName: id
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-grduges
+            tablePrivacy: private
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn 
+    attributes:
+      enabled: true
+      optional-sign-in: true
+    components:
+      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
+        attributes:
+          alias-attributes:
+            - email
+            - phone_number
+          mfa-configuration: ON
+          name: userpool
+          password-policy: !com.amazonaws.mobilehub.ConvertibleMap 
+            min-length: '8'
+            require-lower-case: true
+            require-numbers: true
+            require-symbols: true
+            require-upper-case: true
+name: grudge-bin
+region: us-east-1
