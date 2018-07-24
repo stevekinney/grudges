@@ -1,5 +1,6 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+.vscode
 awsmobilejs
 src/aws-exports.js
 
