@@ -1,0 +1,11 @@
+--- !com.amazonaws.mobilehub.v0.Project 
+features:
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
+    attributes:
+      enabled: true
+      visibility: public-global
+    components:
+      release: !com.amazonaws.mobilehub.v0.Bucket {}
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn {}
+name: grudges-2018-08-14-18-10-37
+region: us-east-1
