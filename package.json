@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "awsmobile-cli": "^1.1.5",
+    "global": "^4.3.2",
     "lodash": "^4.17.10",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
