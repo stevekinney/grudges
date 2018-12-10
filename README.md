@@ -1,3 +1,9 @@
+## Grudges Application
+
+This application was created for the [Rapid Development on AWS: React, Node.js & GraphQL Course](https://frontendmasters.com/courses/aws-react-node-graphql/) for Frontend Masters.
+
+## Code
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
