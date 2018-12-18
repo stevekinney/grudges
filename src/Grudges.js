@@ -10,6 +10,25 @@ class Grudges extends Component {
     searchTerm: '',
   };
 
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    grudges: PropTypes.arrayOf(
+      PropTypes.shape({
+        person: PropTypes.string.isRequired,
+        deed: PropTypes.string.isRequired,
+        avenged: PropTypes.bool.isRequired,
+        id: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+    onCheckOff: PropTypes.func,
+    onRemove: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onCheckOff: () => {},
+    onRemove: () => {},
+  };
+  
   updateSearchTerm = event => {
     const searchTerm = event.target.value.toLowerCase();
     this.setState({
@@ -46,24 +65,5 @@ class Grudges extends Component {
     );
   }
 }
-
-Grudges.propTypes = {
-  title: PropTypes.string.isRequired,
-  grudges: PropTypes.arrayOf(
-    PropTypes.shape({
-      person: PropTypes.string.isRequired,
-      deed: PropTypes.string.isRequired,
-      avenged: PropTypes.bool.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  onCheckOff: PropTypes.func,
-  onRemove: PropTypes.func,
-};
-
-Grudges.defaultProps = {
-  onCheckOff: () => {},
-  onRemove: () => {},
-};
 
 export default Grudges;
